@@ -24,16 +24,16 @@ export const Hero = () => {
           </p>
           
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-4">
-            <span className="text-foreground">John Developer.</span>
+            <span className="text-foreground">PRASAM PRADHAN</span>
           </h1>
           
           <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-muted-foreground mb-6">
-            I build things for the web.
+            I build things for the web and community .
           </h2>
           
           <p className="text-muted-foreground text-lg md:text-xl max-w-xl mb-8 leading-relaxed">
-            I'm a full-stack developer specializing in building exceptional digital experiences. 
-            Currently focused on creating accessible, human-centered products.
+            I'm a student specializing in building exceptional digital experiences. 
+            Currently focused on creating accessible, human-centered products digitally.
           </p>
 
           <div className="flex flex-wrap items-center gap-4 mb-12">

@@ -6,32 +6,33 @@ import { Button } from '@/components/ui/button';
 
 const experiences = [
   {
-    title: 'Senior Frontend Developer',
-    company: 'Tech Startup Inc.',
-    period: '2022 — Present',
-    description: 'Lead frontend development for a SaaS platform, implementing new features and improving performance. Mentored junior developers and established coding best practices.',
+    title: 'Technical Business Analyst Intern ',
+    company: 'NCELL Axiata PVT.LTD',
+    period: 'APR 2024 — JUL 2024',
+    description: 'Carried out data analysis and completed a company OPEX decreasing project supporting sustainable development by digitalizing a GOODS DELIVERY NOTICE in short time . ',
   },
-  {
-    title: 'Full Stack Developer',
-    company: 'Digital Agency Co.',
-    period: '2020 — 2022',
-    description: 'Developed and maintained web applications for various clients. Worked closely with designers and project managers to deliver high-quality solutions.',
-  },
-  {
-    title: 'Junior Developer',
-    company: 'Software Solutions Ltd.',
-    period: '2018 — 2020',
-    description: 'Started my professional journey building internal tools and contributing to client projects. Learned agile methodologies and collaborative development.',
-  },
+
 ];
 
 const education = [
   {
-    degree: 'B.S. Computer Science',
-    school: 'University of Technology',
-    period: '2014 — 2018',
-    description: 'Focused on software engineering, algorithms, and web technologies. Graduated with honors.',
+    degree: 'SEE EXAMINATION',
+    school: 'GEMS School , Lalitpur , NEPAL',
+    period: '2009 — 2019',
+    description: 'Focused on basic fundamentals on all subjects .',
   },
+  {
+    degree: 'NEB +2 (Science)',
+    school: 'Kathmandu World School, Bhaktapur , NEPAL',
+    period: '2019 — 2021',
+    description: 'Completed with flying colors with Computer Science as a major subject .',
+  },
+  {
+    degree: 'B.Tech Computer Science Engineering',
+    school: 'Vellore Institute of Technology , Vellore , INDIA',
+    period: '2022 — 2026',
+    description: 'Focused on core computer science subjects with many other electives like AI , ML , Predictive analysis and more  .',
+  }
 ];
 
 export const Resume = () => {
@@ -54,10 +55,16 @@ export const Resume = () => {
           </div>
 
           <div className="flex justify-center mb-16">
-            <Button className="bg-primary text-primary-foreground hover:bg-primary/90 gap-2">
-              <Download size={18} />
-              Download Resume
-            </Button>
+          <a
+  href="/CV PRASAM.pdf"
+  download
+  className="bg-primary text-primary-foreground hover:bg-primary/90 gap-2 px-6 py-3 rounded-md flex items-center w-fit"
+>
+  <Download size={18} className="mr-2" />
+  Download Resume
+</a>
+
+
           </div>
 
           <div className="grid md:grid-cols-2 gap-12">

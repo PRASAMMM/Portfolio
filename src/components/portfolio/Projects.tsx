@@ -5,29 +5,14 @@ import { ExternalLink, Github, Folder } from 'lucide-react';
 
 const featuredProjects = [
   {
-    title: 'E-Commerce Platform',
-    description: 'A full-featured e-commerce application with user authentication, shopping cart, payment processing with Stripe, and order management. Built with a focus on performance and accessibility.',
-    tech: ['React', 'Node.js', 'PostgreSQL', 'Stripe', 'Redis'],
+    title: 'Multimodal Dementia Detection',
+    description: 'A full-featured  application with rolebased user authentication where multiple data will be used to evaluate the type and seriousness of the demented patients .',
+    tech: ['Python', 'Next.js'],
     github: 'https://github.com',
-    live: 'https://example.com',
+    live: 'https://youtube.com',
     image: 'bg-gradient-to-br from-primary/20 to-primary/5',
   },
-  {
-    title: 'Task Management App',
-    description: 'A collaborative task management tool with real-time updates, drag-and-drop functionality, team workspaces, and comprehensive project analytics.',
-    tech: ['Next.js', 'TypeScript', 'Prisma', 'WebSockets', 'Tailwind'],
-    github: 'https://github.com',
-    live: 'https://example.com',
-    image: 'bg-gradient-to-br from-primary/15 to-primary/5',
-  },
-  {
-    title: 'AI Content Generator',
-    description: 'An AI-powered content generation tool that helps writers create blog posts, social media content, and marketing copy using advanced language models.',
-    tech: ['Python', 'FastAPI', 'React', 'OpenAI', 'Docker'],
-    github: 'https://github.com',
-    live: 'https://example.com',
-    image: 'bg-gradient-to-br from-primary/25 to-primary/5',
-  },
+ 
 ];
 
 const otherProjects = [

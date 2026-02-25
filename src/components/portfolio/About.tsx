@@ -25,25 +25,23 @@ export const About = () => {
           <div className="grid md:grid-cols-3 gap-12">
             <div className="md:col-span-2 space-y-4">
               <p className="text-muted-foreground leading-relaxed">
-                Hello! I'm John, a passionate developer who loves creating things that live on the internet. 
-                My interest in web development started back in 2015 when I decided to try editing custom 
-                Tumblr themes — turns out hacking together a custom reblog button taught me a lot about 
-                HTML & CSS!
+              Hi, I’m Prasam — a student who’s curious about exploring and creating all kinds of 
+              things on the internet. I enjoy experimenting, learning new skills, and turning ideas into something real.
               </p>
               <p className="text-muted-foreground leading-relaxed">
-                Fast-forward to today, and I've had the privilege of working at a start-up, a large 
-                corporation, and a student-led design studio. My main focus these days is building 
+                Fast-forward to today, and I've had the privilege of doing an intern in NCELL Nepal, a large 
+                corporation, on the communication field in Nepal. My main focus these days is building 
                 accessible, inclusive products and digital experiences.
               </p>
               <p className="text-muted-foreground leading-relaxed">
-                When I'm not at the computer, I'm usually rock climbing, hanging out with my dog, 
+                When I'm not at the computer, I'm usually playing tennis or football , hanging out with friends, 
                 or exploring new coffee shops in the city.
               </p>
 
               <div className="pt-4">
-                <p className="text-foreground mb-4">Here are a few technologies I've been working with recently:</p>
+                <p className="text-foreground mb-4">Here are a few things i have been working with recently:</p>
                 <ul className="grid grid-cols-2 gap-2">
-                  {['JavaScript (ES6+)', 'TypeScript', 'React', 'Node.js', 'Next.js', 'PostgreSQL'].map((tech) => (
+                  {['JavaScript (ES6+)', 'JAVA', 'React', 'Node.js', 'Next.js', 'PowerBI'].map((tech) => (
                     <li key={tech} className="flex items-center gap-2 text-sm text-muted-foreground">
                       <span className="text-primary">▹</span>
                       {tech}
@@ -57,7 +55,7 @@ export const About = () => {
               <div className="relative z-10 rounded-lg overflow-hidden">
                 <div className="aspect-square bg-primary/20 rounded-lg flex items-center justify-center">
                   <div className="w-32 h-32 rounded-full bg-gradient-to-br from-primary/40 to-primary/20 flex items-center justify-center">
-                    <span className="text-4xl font-bold text-primary">JD</span>
+                    <span className="text-4xl font-bold text-primary">P-P</span>
                   </div>
                 </div>
                 <div className="absolute inset-0 bg-primary/10 group-hover:bg-transparent transition-all duration-300" />

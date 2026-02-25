@@ -9,20 +9,17 @@ export const Footer = () => {
             <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
               <Github size={20} />
             </a>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
+            <a href="https://www.linkedin.com/in/prasam-pradhan-65b181252/
+" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
               <Linkedin size={20} />
             </a>
-            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
-              <Twitter size={20} />
-            </a>
+            
           </div>
 
-          <p className="text-sm text-muted-foreground flex items-center gap-1">
-            Built with <Heart size={14} className="text-primary" /> using React & Tailwind
-          </p>
+         
 
           <p className="mono text-xs text-muted-foreground">
-            © 2024 John Developer
+            © 2025 PRASAM PRADHAN
           </p>
         </div>
       </div>

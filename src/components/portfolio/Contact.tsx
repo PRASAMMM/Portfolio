@@ -13,18 +13,36 @@ export const Contact = () => {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: any) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    // Simulate form submission
-    setTimeout(() => {
+
+    const form = e.target;
+
+    const data = new FormData(form);
+
+    const response = await fetch("https://formspree.io/f/mnjblkzn", {
+      method: "POST",
+      body: data,
+      headers: {
+        Accept: "application/json",
+      },
+    });
+
+    if (response.ok) {
       toast({
-        title: "Message sent!",
-        description: "Thanks for reaching out. I'll get back to you soon.",
+        title: "Message Sent!",
+        description: "Your message has been sent successfully.",
       });
-      setIsSubmitting(false);
-    }, 1000);
+      form.reset();
+    } else {
+      toast({
+        title: "Error!",
+        description: "Something went wrong. Try again.",
+      });
+    }
+
+    setIsSubmitting(false);
   };
 
   return (
@@ -41,94 +59,57 @@ export const Contact = () => {
             <span className="mono text-primary text-sm">05. What's Next?</span>
             <h2 className="section-heading mt-4 mb-4">Get In Touch</h2>
             <p className="text-muted-foreground max-w-lg mx-auto">
-              I'm currently open to new opportunities. Whether you have a question 
-              or just want to say hi, my inbox is always open!
+              I'm currently open to new opportunities.
             </p>
           </div>
 
           <div className="grid md:grid-cols-5 gap-12">
-            {/* Contact Info */}
             <div className="md:col-span-2 space-y-6">
-              <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                animate={isInView ? { opacity: 1, x: 0 } : {}}
-                transition={{ duration: 0.5, delay: 0.2 }}
-                className="flex items-center gap-4"
-              >
-                <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
-                  <Mail className="w-5 h-5 text-primary" />
-                </div>
-                <div>
-                  <p className="text-sm text-muted-foreground">Email</p>
-                  <a href="mailto:hello@example.com" className="text-foreground hover:text-primary transition-colors">
-                    hello@example.com
-                  </a>
-                </div>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                animate={isInView ? { opacity: 1, x: 0 } : {}}
-                transition={{ duration: 0.5, delay: 0.3 }}
-                className="flex items-center gap-4"
-              >
-                <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
-                  <MapPin className="w-5 h-5 text-primary" />
-                </div>
-                <div>
-                  <p className="text-sm text-muted-foreground">Location</p>
-                  <p className="text-foreground">San Francisco, CA</p>
-                </div>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                animate={isInView ? { opacity: 1, x: 0 } : {}}
-                transition={{ duration: 0.5, delay: 0.4 }}
-                className="flex items-center gap-4"
-              >
-                <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
-                  <Phone className="w-5 h-5 text-primary" />
-                </div>
-                <div>
-                  <p className="text-sm text-muted-foreground">Phone</p>
-                  <p className="text-foreground">+1 (555) 123-4567</p>
-                </div>
-              </motion.div>
+              <div className="flex items-center gap-4">
+                <Mail className="w-5 h-5 text-primary" />
+                <p className="text-foreground">mailprasam7@gmail.com</p>
+              </div>
+              <div className="flex items-center gap-4">
+                <MapPin className="w-5 h-5 text-primary" />
+                <p className="text-foreground">Lalitpur, Nepal</p>
+              </div>
+              <div className="flex items-center gap-4">
+                <Phone className="w-5 h-5 text-primary" />
+                <p className="text-foreground">+977 9845766662</p>
+              </div>
             </div>
 
-            {/* Contact Form */}
             <motion.form
-              initial={{ opacity: 0, x: 20 }}
-              animate={isInView ? { opacity: 1, x: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.3 }}
               onSubmit={handleSubmit}
               className="md:col-span-3 space-y-4"
             >
               <div className="grid sm:grid-cols-2 gap-4">
                 <Input
+                  name="name"
                   placeholder="Your Name"
-                  className="bg-muted/50 border-border focus:border-primary"
                   required
                 />
                 <Input
                   type="email"
+                  name="email"
                   placeholder="Your Email"
-                  className="bg-muted/50 border-border focus:border-primary"
                   required
                 />
               </div>
+
               <Input
+                name="subject"
                 placeholder="Subject"
-                className="bg-muted/50 border-border focus:border-primary"
                 required
               />
+
               <Textarea
+                name="message"
                 placeholder="Your Message"
                 rows={5}
-                className="bg-muted/50 border-border focus:border-primary resize-none"
                 required
               />
+
               <Button
                 type="submit"
                 disabled={isSubmitting}
