@@ -1,9 +1,19 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import profile from "../../assets/profile.jpg";
 
 export const About = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+
+  const techStack = [
+    "JavaScript (ES6+)",
+    "Java",
+    "React",
+    "Node.js",
+    "Next.js",
+    "Power BI",
+  ];
 
   return (
     <section id="about" className="py-24 md:py-32">
@@ -11,60 +21,53 @@ export const About = () => {
 
         <motion.div
           ref={ref}
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 40 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
           className="max-w-5xl mx-auto"
         >
 
-          {/* Heading */}
+          {/* Section Title */}
           <div className="flex items-center gap-4 mb-12">
             <span className="mono text-primary text-sm">01.</span>
             <h2 className="section-heading">About Me</h2>
-            <div className="h-px bg-border flex-1 max-w-xs" />
+            <div className="h-px bg-border flex-1 max-w-xs"></div>
           </div>
 
           <div className="grid md:grid-cols-3 gap-12 items-center">
 
-            {/* Text */}
-            <div className="md:col-span-2 space-y-5">
+            {/* Text Content */}
+            <div className="md:col-span-2 space-y-6">
 
               <p className="text-muted-foreground leading-relaxed">
-                Hi, I’m Prasam — a student who loves exploring and creating things
-                on the internet. I enjoy experimenting, learning new skills,
+                Hi, I’m <span className="text-foreground font-medium">Prasam</span>,
+                a student passionate about exploring technology and building things on the internet.
+                I enjoy experimenting with new tools, learning modern development skills,
                 and turning ideas into real products.
               </p>
 
               <p className="text-muted-foreground leading-relaxed">
-                Recently I had the opportunity to intern at NCELL Nepal,
+                Recently, I had the opportunity to intern at
+                <span className="text-foreground font-medium"> NCELL Nepal</span>,
                 one of the largest telecom companies in the country.
-                My focus is on building accessible and inclusive
-                digital experiences.
+                My focus is on building accessible, inclusive digital products
+                and improving user experiences.
               </p>
 
               <p className="text-muted-foreground leading-relaxed">
-                When I'm not coding, you’ll probably find me playing tennis,
-                football, hanging out with friends, or exploring coffee
-                shops around the city.
+                Outside of coding, I enjoy playing tennis and football,
+                spending time with friends, and discovering new coffee shops.
               </p>
 
               {/* Tech Stack */}
               <div className="pt-4">
-
                 <p className="text-foreground mb-4">
-                  Here are a few technologies I've been working with recently:
+                  Technologies I’ve been working with recently:
                 </p>
 
-                <ul className="grid grid-cols-2 gap-2">
+                <ul className="grid grid-cols-2 gap-3">
 
-                  {[
-                    "JavaScript (ES6+)",
-                    "JAVA",
-                    "React",
-                    "Node.js",
-                    "Next.js",
-                    "PowerBI",
-                  ].map((tech) => (
+                  {techStack.map((tech) => (
                     <li
                       key={tech}
                       className="flex items-center gap-2 text-sm text-muted-foreground"
@@ -75,7 +78,6 @@ export const About = () => {
                   ))}
 
                 </ul>
-
               </div>
 
             </div>
@@ -83,16 +85,16 @@ export const About = () => {
             {/* Profile Image */}
             <div className="relative group">
 
-              {/* Glow */}
+              {/* Glow Effect */}
               <div className="absolute -inset-1 bg-primary/30 blur-xl opacity-40 group-hover:opacity-70 transition duration-500 rounded-xl"></div>
 
               {/* Image */}
               <div className="relative rounded-xl overflow-hidden">
 
                 <img
-                  src="profile.jpg"
+                  src={profile}
                   alt="Prasam Pradhan"
-                  className="w-full h-auto object-cover rounded-xl transition-transform duration-500 group-hover:scale-105"
+                  className="w-full max-w-sm mx-auto rounded-xl object-cover shadow-xl transition-transform duration-500 group-hover:scale-105"
                 />
 
               </div>
