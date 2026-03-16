@@ -90,7 +90,7 @@ export const About = () => {
               <div className="relative rounded-xl overflow-hidden">
 
                 <img
-                  src="/profile.jpg"
+                  src="profile.jpg"
                   alt="Prasam Pradhan"
                   className="w-full h-auto object-cover rounded-xl transition-transform duration-500 group-hover:scale-105"
                 />
