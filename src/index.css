@@ -1,128 +1,178 @@
+@import url("https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
-
-/* Developer Portfolio Design System - Dark Minimal Theme */
+/*
+ * Design system — dark-first, editorial.
+ * Warm neutral ground, restrained gold accent, typography carries the hierarchy.
+ */
 
 @layer base {
   :root {
-    --background: 229 44% 1%;
-    --foreground: 210 40% 96%;
+    /* Ground */
+    --bg: 30 7% 5%;
+    --bg-raised: 30 7% 8%;
+    --bg-sunken: 30 8% 3.5%;
 
-    --card: 222 47% 8%;
-    --card-foreground: 210 40% 96%;
+    /* Ink */
+    --fg: 36 20% 96%;
+    --fg-muted: 34 8% 62%;
+    --fg-subtle: 32 7% 44%;
 
-    --popover: 222 47% 8%;
-    --popover-foreground: 210 40% 96%;
+    /* Line */
+    --line: 32 8% 15%;
+    --line-strong: 32 8% 24%;
 
-    --primary: 174 72% 56%;
-    --primary-foreground: 222 47% 6%;
+    /* Accent — used sparingly: eyebrows, rules, metrics, focus */
+    --accent: 40 72% 62%;
+    --accent-dim: 40 40% 40%;
+    --accent-ink: 30 30% 8%;
 
-    --secondary: 222 30% 14%;
-    --secondary-foreground: 210 40% 96%;
-
-    --muted: 222 30% 12%;
-    --muted-foreground: 215 20% 55%;
-
-    --accent: 174 72% 56%;
-    --accent-foreground: 222 47% 6%;
-
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 222 30% 18%;
-    --input: 222 30% 18%;
-    --ring: 174 72% 56%;
-
-    --radius: 0.75rem;
-
-    /* Custom tokens */
-    --glow-primary: 174 72% 56%;
-    --gradient-start: 174 72% 56%;
-    --gradient-end: 199 89% 48%;
-    --surface-elevated: 222 40% 10%;
-  }
-
-  .dark {
-    --background: 222 47% 6%;
-    --foreground: 210 40% 96%;
+    --radius: 4px;
   }
 }
 
 @layer base {
   * {
-    @apply border-border;
+    @apply border-line;
   }
 
   html {
     scroll-behavior: smooth;
+    scroll-padding-top: 5.5rem;
+    -webkit-text-size-adjust: 100%;
   }
 
   body {
-    @apply bg-background text-foreground font-sans antialiased;
-    font-family: 'Inter', system-ui, sans-serif;
+    @apply bg-bg text-fg antialiased;
+    font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
   }
 
   ::selection {
-    @apply bg-primary/30 text-foreground;
+    background: hsl(var(--accent) / 0.28);
+    color: hsl(var(--fg));
+  }
+
+  :focus-visible {
+    outline: 2px solid hsl(var(--accent));
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  /* Never rely on the UA default alone for keyboard users. */
+  a,
+  button {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
   }
 }
 
 @layer components {
-  .text-gradient {
-    @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(135deg, hsl(var(--gradient-start)), hsl(var(--gradient-end)));
+  .display {
+    font-family: "Instrument Serif", ui-serif, Georgia, serif;
+    font-weight: 400;
+    letter-spacing: -0.015em;
+    line-height: 1.06;
   }
 
-  .glow-box {
-    box-shadow: 0 0 60px -15px hsl(var(--glow-primary) / 0.3);
+  .eyebrow {
+    @apply text-[0.6875rem] font-medium uppercase tracking-[0.18em] text-fg-subtle;
   }
 
-  .glass-card {
-    @apply bg-card/50 backdrop-blur-xl border border-border/50;
+  .shell {
+    @apply mx-auto w-full max-w-[76rem] px-5 sm:px-8 lg:px-12;
   }
 
-  .nav-link {
-    @apply text-muted-foreground hover:text-primary transition-colors duration-300 text-sm font-medium;
+  /* Section rhythm — deliberate at every breakpoint, not a collapsed desktop grid. */
+  .section {
+    @apply scroll-mt-24 py-16 sm:py-20 lg:py-24;
   }
 
-  .section-heading {
-    @apply text-3xl md:text-4xl font-bold tracking-tight;
+  .rule {
+    @apply h-px w-full border-0 bg-line;
   }
 
-  .mono {
-    font-family: 'JetBrains Mono', monospace;
+  .link-underline {
+    background-image: linear-gradient(hsl(var(--accent)), hsl(var(--accent)));
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    background-size: 0% 1px;
+    transition: background-size 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .link-underline:hover,
+  .link-underline:focus-visible {
+    background-size: 100% 1px;
   }
 }
 
 @layer utilities {
-  .animate-fade-up {
-    animation: fade-up 0.6s ease-out forwards;
+  /* Scroll reveal — progressive enhancement, off by default under reduced motion. */
+  .reveal {
+    opacity: 0;
+    transform: translateY(18px);
+    transition:
+      opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: opacity, transform;
   }
 
-  @keyframes fade-up {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+  .reveal[data-shown="true"] {
+    opacity: 1;
+    transform: none;
+    will-change: auto;
   }
 
-  .animate-glow-pulse {
-    animation: glow-pulse 3s ease-in-out infinite;
+  .grain {
+    position: relative;
   }
 
-  @keyframes glow-pulse {
-    0%, 100% {
-      box-shadow: 0 0 40px -10px hsl(var(--glow-primary) / 0.4);
-    }
-    50% {
-      box-shadow: 0 0 60px -10px hsl(var(--glow-primary) / 0.6);
-    }
+  .grain::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.35;
+    background-image: radial-gradient(
+      120% 80% at 50% 0%,
+      hsl(var(--accent) / 0.07),
+      transparent 62%
+    );
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }
